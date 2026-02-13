@@ -9,17 +9,17 @@
 <style>
 /* ===== CSS VARIABLES ===== */
 :root {
-  --primary: #E87A1E;
-  --primary-dark: #C96A15;
-  --primary-light: #F4A54A;
-  --dark: #111111;
-  --dark-2: #1A1A1A;
-  --dark-3: #222222;
-  --dark-4: #2C2C2C;
-  --text: #E0E0E0;
-  --text-muted: #909090;
-  --text-light: #B8B8B8;
-  --white: #FFFFFF;
+  --primary: #E8A41E;
+  --primary-dark: #C98B18;
+  --primary-light: #F0BC4A;
+  --dark: #f7f4f0;
+  --dark-2: #ffffff;
+  --dark-3: #f0ebe4;
+  --dark-4: #e8e2da;
+  --text: #3a3530;
+  --text-muted: #828495;
+  --text-light: #6b6570;
+  --white: #2a2520;
   --font-display: 'Oswald', sans-serif;
   --font-body: 'Source Sans 3', sans-serif;
 }
@@ -48,7 +48,7 @@ img { max-width: 100%; display: block; }
 /* ===== TOP BAR ===== */
 .top-bar {
   background: var(--dark-2);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
   padding: 10px 0;
   font-size: 0.85rem;
   color: var(--text-muted);
@@ -102,13 +102,13 @@ img { max-width: 100%; display: block; }
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: rgba(255,255,255,0.05);
+  background: rgba(0,0,0,0.05);
   transition: all 0.3s;
 }
 
 .top-bar-right a:hover {
   background: var(--primary);
-  color: var(--dark);
+  color: #fff;
 }
 
 .top-bar-right svg {
@@ -123,14 +123,14 @@ img { max-width: 100%; display: block; }
   position: sticky;
   top: 0;
   z-index: 1000;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
   transition: all 0.3s;
 }
 
 .navbar.scrolled {
-  background: rgba(17,17,17,0.97);
+  background: rgba(247,244,240,0.97);
   backdrop-filter: blur(12px);
-  box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.08);
 }
 
 .navbar .container {
@@ -146,7 +146,7 @@ img { max-width: 100%; display: block; }
 }
 
 .logo img {
-  height: 60px;
+  height: 140px;
   width: auto;
   object-fit: contain;
 }
@@ -201,13 +201,13 @@ img { max-width: 100%; display: block; }
   left: 0;
   background: var(--dark-2);
   min-width: 300px;
-  border: 1px solid rgba(255,255,255,0.06);
+  border: 1px solid rgba(0,0,0,0.06);
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
   transition: all 0.3s;
   z-index: 100;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
 }
 
 .nav-links li:hover .dropdown {
@@ -221,12 +221,12 @@ img { max-width: 100%; display: block; }
   padding: 13px 22px !important;
   font-size: 0.82rem !important;
   letter-spacing: 1px !important;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(0,0,0,0.04);
   color: var(--text-muted) !important;
 }
 
 .dropdown a:hover {
-  background: rgba(232,122,30,0.08);
+  background: rgba(232,164,30,0.08);
   color: var(--primary) !important;
   padding-left: 28px !important;
 }
@@ -248,7 +248,7 @@ img { max-width: 100%; display: block; }
 .menu-toggle span {
   width: 28px;
   height: 2px;
-  background: var(--white);
+  background: var(--text);
   transition: all 0.3s;
   display: block;
 }
@@ -417,13 +417,13 @@ img { max-width: 100%; display: block; }
 .btn-primary:hover {
   background: var(--primary-light);
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(232,122,30,0.35);
+  box-shadow: 0 8px 30px rgba(232,164,30,0.35);
 }
 
 .btn-outline {
   background: transparent;
   color: var(--white);
-  border: 2px solid rgba(255,255,255,0.25);
+  border: 2px solid rgba(0,0,0,0.15);
 }
 
 .btn-outline:hover {
@@ -450,7 +450,7 @@ img { max-width: 100%; display: block; }
 .hero-dot {
   width: 50px;
   height: 4px;
-  background: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.3);
   cursor: pointer;
   transition: all 0.3s;
   position: relative;
@@ -473,6 +473,19 @@ img { max-width: 100%; display: block; }
   transition: width 5.5s linear;
 }
 
+/* Hero light-theme overrides — keep white text on dark image overlay */
+.hero-title { color: #fff; }
+.hero-title span { color: var(--primary-light); }
+.hero-desc { color: rgba(255,255,255,0.75); }
+.hero-motto { color: var(--primary-light); }
+.hero .btn-primary { color: #fff; }
+.hero .btn-outline { color: #fff; border-color: rgba(255,255,255,0.3); }
+.hero .btn-outline:hover { color: var(--primary-light); border-color: var(--primary-light); }
+
+/* About accent box — keep white text on primary bg */
+.about-img-accent .big-num { color: #fff; }
+.about-img-accent .accent-text { color: rgba(255,255,255,0.85); }
+
 /* ===== STATS ===== */
 .stats {
   background: var(--dark-2);
@@ -493,7 +506,7 @@ img { max-width: 100%; display: block; }
   transition: background 0.3s;
 }
 
-.stat-item:hover { background: rgba(232,122,30,0.04); }
+.stat-item:hover { background: rgba(232,164,30,0.04); }
 
 .stat-item:not(:last-child)::after {
   content: '';
@@ -502,7 +515,7 @@ img { max-width: 100%; display: block; }
   top: 20%;
   height: 60%;
   width: 1px;
-  background: rgba(255,255,255,0.06);
+  background: rgba(0,0,0,0.06);
 }
 
 .stat-icon {
@@ -513,6 +526,13 @@ img { max-width: 100%; display: block; }
   width: 28px;
   height: 28px;
   fill: var(--primary);
+}
+
+.stat-icon img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  margin: 0 auto;
 }
 
 .stat-number {
@@ -578,8 +598,8 @@ img { max-width: 100%; display: block; }
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 15% 50%, rgba(232,122,30,0.03) 0%, transparent 50%),
-    radial-gradient(circle at 85% 20%, rgba(232,122,30,0.02) 0%, transparent 40%);
+    radial-gradient(circle at 15% 50%, rgba(232,164,30,0.03) 0%, transparent 50%),
+    radial-gradient(circle at 85% 20%, rgba(232,164,30,0.02) 0%, transparent 40%);
   pointer-events: none;
 }
 
@@ -593,7 +613,7 @@ img { max-width: 100%; display: block; }
 
 .service-card {
   background: var(--dark-2);
-  border: 1px solid rgba(255,255,255,0.04);
+  border: 1px solid rgba(0,0,0,0.04);
   overflow: hidden;
   position: relative;
   transition: all 0.4s;
@@ -602,8 +622,8 @@ img { max-width: 100%; display: block; }
 
 .service-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(232,122,30,0.2);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  border-color: rgba(232,164,30,0.2);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
 }
 
 .service-card-img {
@@ -632,7 +652,7 @@ img { max-width: 100%; display: block; }
   left: 0;
   width: 100%;
   height: 50%;
-  background: linear-gradient(transparent, var(--dark-2));
+  background: linear-gradient(transparent, #ffffff);
 }
 
 .service-card-body {
@@ -759,7 +779,7 @@ img { max-width: 100%; display: block; }
   align-items: center;
   gap: 12px;
   padding: 14px 18px;
-  background: rgba(255,255,255,0.02);
+  background: rgba(0,0,0,0.02);
   border-left: 3px solid var(--primary);
 }
 
@@ -783,8 +803,8 @@ img { max-width: 100%; display: block; }
 .clients {
   padding: 80px 0;
   background: var(--dark-3);
-  border-top: 1px solid rgba(255,255,255,0.04);
-  border-bottom: 1px solid rgba(255,255,255,0.04);
+  border-top: 1px solid rgba(0,0,0,0.04);
+  border-bottom: 1px solid rgba(0,0,0,0.04);
 }
 
 .clients-grid {
@@ -797,8 +817,8 @@ img { max-width: 100%; display: block; }
 
 .client-tag {
   padding: 10px 24px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(0,0,0,0.03);
+  border: 1px solid rgba(0,0,0,0.06);
   font-family: var(--font-display);
   font-size: 0.8rem;
   font-weight: 400;
@@ -811,7 +831,7 @@ img { max-width: 100%; display: block; }
 .client-tag:hover {
   border-color: var(--primary);
   color: var(--primary);
-  background: rgba(232,122,30,0.05);
+  background: rgba(232,164,30,0.05);
 }
 
 /* ===== CERTIFICATIONS ===== */
@@ -829,13 +849,13 @@ img { max-width: 100%; display: block; }
 .cert-card {
   padding: 30px 24px;
   background: var(--dark-2);
-  border: 1px solid rgba(255,255,255,0.04);
+  border: 1px solid rgba(0,0,0,0.04);
   text-align: center;
   transition: all 0.3s;
 }
 
 .cert-card:hover {
-  border-color: rgba(232,122,30,0.2);
+  border-color: rgba(232,164,30,0.2);
   transform: translateY(-4px);
 }
 
@@ -888,8 +908,8 @@ img { max-width: 100%; display: block; }
       0deg,
       transparent,
       transparent 2px,
-      rgba(232,122,30,0.012) 2px,
-      rgba(232,122,30,0.012) 4px
+      rgba(232,164,30,0.012) 2px,
+      rgba(232,164,30,0.012) 4px
     );
   pointer-events: none;
 }
@@ -914,8 +934,8 @@ img { max-width: 100%; display: block; }
 .cta-contact-icon {
   width: 54px;
   height: 54px;
-  background: rgba(232,122,30,0.1);
-  border: 1px solid rgba(232,122,30,0.25);
+  background: rgba(232,164,30,0.1);
+  border: 1px solid rgba(232,164,30,0.25);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -952,7 +972,7 @@ img { max-width: 100%; display: block; }
 /* ===== FOOTER ===== */
 .footer {
   background: var(--dark);
-  border-top: 1px solid rgba(255,255,255,0.06);
+  border-top: 1px solid rgba(0,0,0,0.06);
 }
 
 .footer-main {
@@ -970,7 +990,7 @@ img { max-width: 100%; display: block; }
 }
 
 .footer-logo img {
-  height: 50px;
+  height: 120px;
   width: auto;
   object-fit: contain;
   filter: brightness(1.1);
@@ -995,15 +1015,15 @@ img { max-width: 100%; display: block; }
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.06);
   transition: all 0.3s;
 }
 
 .footer-social a:hover {
   background: var(--primary);
   border-color: var(--primary);
-  color: var(--dark);
+  color: #fff;
 }
 
 .footer-social svg {
@@ -1071,7 +1091,7 @@ img { max-width: 100%; display: block; }
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.06);
+  border-top: 1px solid rgba(0,0,0,0.06);
   padding: 20px 0;
 }
 
@@ -1094,7 +1114,7 @@ img { max-width: 100%; display: block; }
 
 .footer-trademark {
   font-size: 0.7rem;
-  color: rgba(255,255,255,0.25);
+  color: rgba(0,0,0,0.35);
   font-style: italic;
   text-align: center;
   max-width: 700px;
@@ -1134,7 +1154,8 @@ img { max-width: 100%; display: block; }
     padding: 100px 30px 30px;
     gap: 0;
     transition: right 0.4s;
-    border-left: 1px solid rgba(255,255,255,0.06);
+    border-left: 1px solid rgba(0,0,0,0.06);
+    box-shadow: -5px 0 30px rgba(0,0,0,0.1);
     overflow-y: auto;
   }
 
@@ -1143,7 +1164,7 @@ img { max-width: 100%; display: block; }
   .nav-links li a {
     padding: 14px 0;
     display: block;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
+    border-bottom: 1px solid rgba(0,0,0,0.04);
   }
 
   .nav-links li a::after { display: none; }
@@ -1155,7 +1176,7 @@ img { max-width: 100%; display: block; }
     transform: none;
     box-shadow: none;
     border: none;
-    background: rgba(255,255,255,0.02);
+    background: rgba(0,0,0,0.02);
     min-width: 100%;
     display: none;
   }
@@ -1220,7 +1241,7 @@ img { max-width: 100%; display: block; }
 <nav class="navbar" id="navbar">
   <div class="container">
     <a href="#" class="logo">
-      <img src="https://static.wixstatic.com/media/b73ca2_a2d89eb7da8c467c93ff8d0dcc5268b2~mv2.jpg/v1/fill/w_358,h_111,al_c,q_80,enc_avif,quality_auto/%D0%A1%D0%9B%D0%9E%D0%93%D0%90%D0%9D.jpg" alt="Софконтракт Инфрастрой ЕООД">
+      <img src="upscale_logo_2_straight_transp.png" alt="Софконтракт Инфрастрой ЕООД">
     </a>
 
     <ul class="nav-links" id="navLinks">
@@ -1293,10 +1314,40 @@ img { max-width: 100%; display: block; }
     </div>
   </div>
 
+  <div class="hero-slide" data-slide="3">
+    <div class="hero-slide-bg" style="background-image: url('hero_4.jpg');"></div>
+    <div class="hero-content">
+      <div class="hero-label">Софконтракт Инфрастрой ЕООД</div>
+      <h1 class="hero-title">СИЛА И <span>ПРЕЦИЗНОСТ</span></h1>
+      <div class="hero-motto">..там, където е трудно</div>
+      <p class="hero-desc">Изпълняваме проекти от всякакъв мащаб с професионализъм, отговорност и грижа за околната среда.</p>
+      <div class="hero-buttons">
+        <a href="#services" class="btn btn-primary">Нашите услуги <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
+        <a href="mailto:info@sofcontract.bg?subject=Запитване" class="btn btn-outline">Направи запитване</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-slide" data-slide="4">
+    <div class="hero-slide-bg" style="background-image: url('hero_5.jpg');"></div>
+    <div class="hero-content">
+      <div class="hero-label">Доверен партньор</div>
+      <h1 class="hero-title">ОПИТ И <span>НАДЕЖДНОСТ</span></h1>
+      <div class="hero-motto">..там, където е трудно</div>
+      <p class="hero-desc">Над 10 години опит в разрушаването, инфраструктурата и рециклирането на строителни отпадъци.</p>
+      <div class="hero-buttons">
+        <a href="#about" class="btn btn-primary">За нас <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
+        <a href="#contact" class="btn btn-outline">Свържете се с нас</a>
+      </div>
+    </div>
+  </div>
+
   <div class="hero-controls">
     <div class="hero-dot active" data-dot="0"></div>
     <div class="hero-dot" data-dot="1"></div>
     <div class="hero-dot" data-dot="2"></div>
+    <div class="hero-dot" data-dot="3"></div>
+    <div class="hero-dot" data-dot="4"></div>
   </div>
 </section>
 
@@ -1304,22 +1355,22 @@ img { max-width: 100%; display: block; }
 <section class="stats">
   <div class="container">
     <div class="stat-item">
-      <div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
+      <div class="stat-icon"><img src="workers_transp.png" alt="Служители"></div>
       <div class="stat-number">150</div>
       <div class="stat-label">Служители</div>
     </div>
     <div class="stat-item">
-      <div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg></div>
+      <div class="stat-icon"><img src="workside_transp.png" alt="Завършени проекта"></div>
       <div class="stat-number">320</div>
       <div class="stat-label">Завършени проекта</div>
     </div>
     <div class="stat-item">
-      <div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M18.93 11C18.44 6.84 14.57 4 10.5 4 5.81 4 2 7.86 2 12.5c0 1.84.63 3.54 1.64 4.92L2 22l4.93-1.31c1.22.72 2.6 1.13 4.07 1.2V22h1v-.11c4.08-.48 7.26-3.86 7.68-7.89H22v-1h-2.07c-.02-.34-.05-.67-.1-1H22v-1h-3.07z"/></svg></div>
+      <div class="stat-icon"><img src="baher_transp.png" alt="Строителни машини"></div>
       <div class="stat-number">45</div>
       <div class="stat-label">Строителни машини</div>
     </div>
     <div class="stat-item">
-      <div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg></div>
+      <div class="stat-icon"><img src="truck_transp.png" alt="Товарни автомобили"></div>
       <div class="stat-number">30</div>
       <div class="stat-label">Товарни автомобили</div>
     </div>
@@ -1338,7 +1389,7 @@ img { max-width: 100%; display: block; }
     <div class="services-grid">
       <div class="service-card reveal">
         <div class="service-card-img">
-          <img src="https://images.unsplash.com/photo-1590644365607-1c5e1a259e8d?w=600&q=75" alt="Събаряне и разрушаване" loading="lazy">
+          <img src="services_demolition.jpg" alt="Събаряне и разрушаване" loading="lazy">
         </div>
         <div class="service-card-body">
           <h3 class="service-card-title">Събаряне и разрушаване на сгради</h3>
@@ -1349,7 +1400,7 @@ img { max-width: 100%; display: block; }
 
       <div class="service-card reveal">
         <div class="service-card-img">
-          <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&q=75" alt="Инфраструктурни проекти" loading="lazy">
+          <img src="services_infra.jpg" alt="Инфраструктурни проекти" loading="lazy">
         </div>
         <div class="service-card-body">
           <h3 class="service-card-title">Инфраструктурни проекти</h3>
@@ -1360,7 +1411,7 @@ img { max-width: 100%; display: block; }
 
       <div class="service-card reveal">
         <div class="service-card-img">
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=75" alt="Рециклиране" loading="lazy">
+          <img src="services_recycle.jpg" alt="Рециклиране" loading="lazy">
         </div>
         <div class="service-card-body">
           <h3 class="service-card-title">Рециклиране на строителни отпадъци</h3>
@@ -1371,7 +1422,7 @@ img { max-width: 100%; display: block; }
 
       <div class="service-card reveal">
         <div class="service-card-img">
-          <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&q=75" alt="Почистване на реки" loading="lazy">
+          <img src="services_riverbed.jpg" alt="Почистване на реки" loading="lazy">
         </div>
         <div class="service-card-body">
           <h3 class="service-card-title">Почистване на корита на реки</h3>
@@ -1393,7 +1444,7 @@ img { max-width: 100%; display: block; }
 
       <div class="service-card reveal">
         <div class="service-card-img">
-          <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=600&q=75" alt="Транспорт" loading="lazy">
+          <img src="services_transport.jpg" alt="Транспорт" loading="lazy">
         </div>
         <div class="service-card-body">
           <h3 class="service-card-title">Транспорт на строителни отпадъци</h3>
@@ -1410,7 +1461,7 @@ img { max-width: 100%; display: block; }
   <div class="container">
     <div class="about-grid">
       <div class="about-img-wrap reveal">
-        <img src="https://static.wixstatic.com/media/b73ca2_02c8f6a34b4146439e157abd5a60f9ef~mv2.png/v1/fill/w_980,h_644,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/b73ca2_02c8f6a34b4146439e157abd5a60f9ef~mv2.png" alt="Софконтракт Инфрастрой">
+        <img src="za_nas.jpg" alt="Софконтракт Инфрастрой">
         <div class="about-img-accent">
           <div class="big-num">10+</div>
           <div class="accent-text">Години</div>
@@ -1543,7 +1594,7 @@ img { max-width: 100%; display: block; }
       <div class="footer-grid">
         <div>
           <div class="footer-logo">
-            <img src="https://static.wixstatic.com/media/b73ca2_a2d89eb7da8c467c93ff8d0dcc5268b2~mv2.jpg/v1/fill/w_358,h_111,al_c,q_80,enc_avif,quality_auto/%D0%A1%D0%9B%D0%9E%D0%93%D0%90%D0%9D.jpg" alt="Софконтракт Инфрастрой ЕООД">
+            <img src="upscale_logo_2_straight_transp.png" alt="Софконтракт Инфрастрой ЕООД">
           </div>
           <p class="footer-desc">Комплексни решения свързани с разрушаване на сгради, инфраструктурни проекти, рециклиране на строителни отпадъци и транспорт на територията на цялата страна.</p>
           <div class="footer-social">
