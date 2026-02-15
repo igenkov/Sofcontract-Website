@@ -382,20 +382,19 @@ img { max-width: 100%; display: block; }
 }
 
 .lightbox-img {
-  max-width: 90vw;
-  max-height: 85vh;
+  max-width: 92vw;
+  max-height: 88vh;
   object-fit: contain;
-  border: 2px solid rgba(255,255,255,0.1);
 }
 
 .lightbox-close {
   position: absolute;
-  top: 20px;
-  right: 30px;
-  width: 44px;
-  height: 44px;
-  background: none;
-  border: 2px solid rgba(255,255,255,0.3);
+  top: 16px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background: rgba(0,0,0,0.5);
+  border: none;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
@@ -406,23 +405,29 @@ img { max-width: 100%; display: block; }
 
 .lightbox-close:hover {
   background: var(--primary);
-  border-color: var(--primary);
 }
 
 .lightbox-close svg {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   fill: #fff;
 }
 
-.lightbox-nav {
+.lightbox-controls {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 50px;
-  height: 50px;
-  background: none;
-  border: 2px solid rgba(255,255,255,0.3);
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.lightbox-nav {
+  width: 48px;
+  height: 48px;
+  background: rgba(0,0,0,0.5);
+  border: none;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
@@ -433,23 +438,15 @@ img { max-width: 100%; display: block; }
 
 .lightbox-nav:hover {
   background: var(--primary);
-  border-color: var(--primary);
 }
 
 .lightbox-nav svg {
-  width: 22px;
-  height: 22px;
+  width: 26px;
+  height: 26px;
   fill: #fff;
 }
 
-.lightbox-prev { left: 20px; }
-.lightbox-next { right: 20px; }
-
 .lightbox-counter {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
   font-family: var(--font-display);
   font-size: 0.85rem;
   letter-spacing: 3px;
@@ -656,8 +653,7 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 480px) {
   .gallery-grid { grid-template-columns: 1fr; }
-  .lightbox-prev { left: 8px; }
-  .lightbox-next { right: 8px; }
+  .lightbox-controls { bottom: 16px; gap: 14px; }
 }
 </style>
 </head>
@@ -790,14 +786,16 @@ img { max-width: 100%; display: block; }
   <button class="lightbox-close" id="lightboxClose">
     <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
   </button>
-  <button class="lightbox-nav lightbox-prev" id="lightboxPrev">
-    <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-  </button>
-  <button class="lightbox-nav lightbox-next" id="lightboxNext">
-    <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-  </button>
   <img class="lightbox-img" id="lightboxImg" src="" alt="">
-  <div class="lightbox-counter" id="lightboxCounter"></div>
+  <div class="lightbox-controls">
+    <button class="lightbox-nav" id="lightboxPrev">
+      <svg viewBox="0 0 24 24"><path d="M19 13H5m0 0l7-7m-7 7l7 7" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="lightbox-counter" id="lightboxCounter"></div>
+    <button class="lightbox-nav" id="lightboxNext">
+      <svg viewBox="0 0 24 24"><path d="M5 13h14m0 0l-7-7m7 7l-7 7" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
 </div>
 
 <!-- ===== FOOTER ===== -->
